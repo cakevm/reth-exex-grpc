@@ -1,5 +1,5 @@
 use crate::proto;
-use alloy_primitives::{Address, BlockHash, Bloom, TxHash, B256, B64, U256};
+use alloy_primitives::{Address, BlockHash, Bloom, Bytes, TxHash, B256, B64, U256};
 use eyre::{eyre, OptionExt};
 use reth::primitives::Block;
 use std::sync::Arc;
@@ -864,18 +864,30 @@ impl TryFrom<&proto::Bytecode> for reth::revm::state::Bytecode {
 
     fn try_from(bytecode: &proto::Bytecode) -> Result<Self, Self::Error> {
         Ok(match bytecode.bytecode.as_ref().ok_or_eyre("no bytecode")? {
+            // Workaround until official example is updated
+            // Copy/past from: reth crates/primitives-traits/src/account.rs
             proto::bytecode::Bytecode::LegacyAnalyzed(legacy_analyzed) => {
+                let bytes: Bytes = legacy_analyzed.bytecode.clone().into();
+                let slice = legacy_analyzed
+                    .jump_table
+                    .iter()
+                    .map(|dest| *dest as u8)
+                    .collect::<Vec<_>>()
+                    .to_vec();
+                let jump_table_len = if slice.len() * 8 >= bytes.len() {
+                    // Use length of padded bytecode if we can fit it
+                    bytes.len()
+                } else {
+                    // Otherwise, use original_len
+                    legacy_analyzed.original_len as usize
+                };
                 reth::revm::state::Bytecode::LegacyAnalyzed(
                     reth::revm::state::bytecode::LegacyAnalyzedBytecode::new(
-                        legacy_analyzed.bytecode.clone().into(),
+                        bytes,
                         legacy_analyzed.original_len as usize,
                         reth::revm::state::bytecode::JumpTable::from_slice(
-                            legacy_analyzed
-                                .jump_table
-                                .iter()
-                                .map(|dest| *dest as u8)
-                                .collect::<Vec<_>>()
-                                .as_slice(),
+                            slice.as_slice(),
+                            jump_table_len,
                         ),
                     ),
                 )
