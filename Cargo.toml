@@ -20,26 +20,26 @@ publish = false
 
 [workspace.dependencies]
 # reth
-reth = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-ethereum = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f", features = ["full"] }
-reth-chainspec = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-ethereum-cli = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-discv5 = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-execution-errors = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-execution-types = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-exex = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f", features = ["serde"] }
-reth-eth-wire = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-evm = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-network = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f", features = ["test-utils"] }
-reth-network-api = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-network-peers = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-node-api = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-node-ethereum = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-primitives = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-provider = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-revm = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-transaction-pool = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-tracing = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
+reth = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-ethereum = { git = "https://github.com/cakevm/reth", rev = "8e5bb10", features = ["full"] }
+reth-chainspec = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-ethereum-cli = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-discv5 = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-execution-errors = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-execution-types = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-exex = { git = "https://github.com/cakevm/reth", rev = "8e5bb10", features = ["serde"] }
+reth-eth-wire = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-evm = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-network = { git = "https://github.com/cakevm/reth", rev = "8e5bb10", features = ["test-utils"] }
+reth-network-api = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-network-peers = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-node-api = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-node-ethereum = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-primitives = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-provider = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-revm = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-transaction-pool = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-tracing = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
 
 # alloy
 alloy-eips = { version = "0.12", default-features = false }
@@ -77,8 +77,8 @@ serde_json = "1"
 eyre = "0.6"
 
 # testing
-reth-exex-test-utils = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
-reth-testing-utils = { git = "https://github.com/cakevm/reth", rev = "8a5cf7f" }
+reth-exex-test-utils = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
+reth-testing-utils = { git = "https://github.com/cakevm/reth", rev = "8e5bb10" }
 
 
 #[patch.crates-io]
